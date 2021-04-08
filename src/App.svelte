@@ -1,16 +1,25 @@
 <script>
+  const min = 0;
+  const max = 999999;
+
   let hinta = 0;
   let alennus = 25;
-  $: lopullinenHinta = (hinta - (hinta * alennus) / 100).toFixed(2);
+  let lopullinenHinta;
+
+  $: if (hinta >= min && hinta <= max) {
+    lopullinenHinta = (hinta - (hinta * alennus) / 100).toFixed(2);
+  } else {
+    hinta = min;
+  }
 </script>
 
 <main>
   <h1>ALE-laskuri</h1>
 
   <label for="hinta">Hinta</label>
-  <input id="hinta" type="number" min="0" max="1000000" bind:value={hinta} />
+  <input id="hinta" type="number" min="0" max="999999" bind:value={hinta} />
 
-  <label for="alennus"> Alennus </label>
+  <label for="alennus">Alennus</label>
   <input
     id="alennus"
     type="range"
