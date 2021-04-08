@@ -8,7 +8,7 @@
   <h1>ALE-laskuri</h1>
 
   <label for="hinta">Hinta</label>
-  <input id="hinta" type="number" bind:value={hinta} />
+  <input id="hinta" type="number" min="0" max="1000000" bind:value={hinta} />
 
   <label for="alennus"> Alennus </label>
   <input
